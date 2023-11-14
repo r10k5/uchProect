@@ -28,6 +28,8 @@ import AppLogoIcon from '@/components/icons/AppLogoIcon.vue';
 
     display: flex;
     padding: 18px 96px;
+
+    align-items: center;
 }
 
 </style>
