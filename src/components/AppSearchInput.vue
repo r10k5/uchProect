@@ -1,17 +1,48 @@
 <script setup lang="ts">
 import AppSearchIcon from '@/components/icons/AppSearchIcon.vue';
+import AppFavoriteIcon from '@/components/icons/AppFavoriteIcon.vue';
+import AppCartIcon from '@/components/icons/AppCartIcon.vue';
+import AppAddIcon from '@/components/icons/AppAddIcon.vue';
 </script>
 
 <template>
-    <div class="app-search-input">
-        <input class="search-input"/>
-        <button class="search-button">
-            <AppSearchIcon width="48" height="48" />
-        </button>
+    <div class="container">
+        <div class="void"></div>
+        <div class="app-search-input">
+            <input class="search-input"/>
+            <button class="search-button">
+                <AppSearchIcon width="48" height="48" />
+            </button>
+        </div>
+
+        <div class="icon-container">
+            <AppFavoriteIcon width="48" height="48" class="app-icon" />
+            <AppCartIcon width="48" height="48" class="app-icon" />
+            <AppAddIcon width="48" height="48" class="app-icon"/>
+        </div>
     </div>
 </template>
 
 <style scoped>
+.void {
+
+}
+.icon-container {
+    display: flex;
+    gap: 32px;
+
+}
+.app-icon {
+    margin-top: 16px;
+}
+.container {
+    display: grid;
+    gap: 104px;
+    margin: 48px auto;
+    padding: 0 32px;
+
+    grid-template-columns: 1fr 1fr 1fr;
+}
 .search-input, .search-button {
     width: 100%;
     background-color: transparent;

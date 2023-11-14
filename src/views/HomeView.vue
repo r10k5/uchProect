@@ -12,7 +12,5 @@ import AppSearchInput from '@/components/AppSearchInput.vue';
 .home-container{
     display: flex;
 }
-.search-input-home {
-    margin: 48px auto;
-}
+
 </style>
