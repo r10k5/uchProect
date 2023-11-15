@@ -24,19 +24,15 @@ import AppAddIcon from '@/components/icons/AppAddIcon.vue';
 </template>
 
 <style scoped>
-.void {
-
-}
 .icon-container {
     display: flex;
     gap: 32px;
-
 }
 .app-icon {
-    margin-top: 16px;
+    margin-top: 6px;
 }
 .container {
-    display: grid;
+    display: grid; 
     gap: 104px;
     margin: 48px auto;
     padding: 0 32px;
@@ -58,7 +54,7 @@ import AppAddIcon from '@/components/icons/AppAddIcon.vue';
     padding: 0;
 }
 .app-search-input {
-    height: 80px;
+    height: 60px;
     width: 628px;
     border-radius: 10px;
     background-color: #E9E8E8;
