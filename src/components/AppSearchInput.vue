@@ -58,7 +58,6 @@ import AppAddIcon from '@/components/icons/AppAddIcon.vue';
     width: 628px;
     border-radius: 10px;
     background-color: #E9E8E8;
-
     display: flex;
 }
 </style>
