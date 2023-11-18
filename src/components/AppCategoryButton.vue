@@ -7,7 +7,12 @@
 .app-category-button {
     width: 60px;
     height: 60px;
+
+    background-color: transparent;
+    border: none;
+    outline: none;
+
     background-color: #E9E8E8;
-    border-color: #E9E8E8;;
+    border-color: #E9E8E8;
 }
 </style>

@@ -3,6 +3,8 @@ import AppSearchInput from '@/components/AppSearchInput.vue';
 import AppBanerContainer from '@/components/AppBanerContainer.vue';
 import AppInstitutionButton from '@/components/AppInstitutionButton.vue';
 import AppCategoryButton from '@/components/AppCategoryButton.vue';
+import AppCategoryName from '@/components/AppCategoryName.vue';
+import AppProductCard from '@/components/AppProductCard.vue';
 </script>
 
 <template>
@@ -39,18 +41,30 @@ import AppCategoryButton from '@/components/AppCategoryButton.vue';
             <AppCategoryButton />
             <AppCategoryButton />
         </div>
+        
+        <AppCategoryName class="category-name"> Рекомендуем </AppCategoryName>
+
+        <div class="product-card-container">
+            <AppProductCard></AppProductCard>
+        </div>
     </div>
 </template>
 
 <style scoped>
+.product-card-container {
+    margin: 32px 124px;
+    display: flex;
+    flex-shrink: 0;
+    gap: 94px;
+}
+.category-name {
+    margin: 32px 206px;
+}
 .category-container {
     height: 60px;
-
     flex-shrink: 0;
-
     margin: 64px 96px;
     background-color: aquamarine;
-
     display: flex;
     justify-content: center;
     gap: 42px; 
