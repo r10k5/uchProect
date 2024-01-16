@@ -4,10 +4,52 @@
         <!-- далее р заменить на slot -->
         <p class="app-product-price"> 8 599 руб </p>
         <p class="app-product-old-price"> 20 999 руб</p>
+        <p class="app-product-name">Name</p>
+        <div class="colors-box">
+            <div class="colors-test" style="background-color: brown;"></div>
+            <div class="colors-test" style="background-color: rgb(92, 61, 61);"></div>
+        </div>
+        <div class="add-cart-button">
+            <p class="add-to-cart-text">В корзину</p>
+        </div>
     </div>
 </template>
 
 <style scoped>
+.add-to-cart-text {
+    color:#4F901C;
+}
+.add-cart-button {
+    width: 240px;
+    height: 40px;
+    border-radius: 10px;
+    border: 1px solid #459927;
+    background-color: #FFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 24px;
+}
+.colors-test {
+    height: 32px;
+    width: 32px;
+}
+.colors-box {
+    height: 32px;
+    width: 100%;
+    margin: 12px 24px;
+    display: flex;
+    gap: 8px;
+    flex-shrink: 0;
+}
+.app-product-name {
+margin: 8px 24px;
+
+    color: #3D3C3C;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: Inter;
+    }
 .app-product-old-price {
     margin: 4px 24px;
 

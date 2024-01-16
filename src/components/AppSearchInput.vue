@@ -3,6 +3,12 @@ import AppSearchIcon from '@/components/icons/AppSearchIcon.vue';
 import AppFavoriteIcon from '@/components/icons/AppFavoriteIcon.vue';
 import AppCartIcon from '@/components/icons/AppCartIcon.vue';
 import AppAddIcon from '@/components/icons/AppAddIcon.vue';
+
+let isAddwindow:boolean = false;
+
+function addObject() {
+    isAddwindow = true;
+}
 </script>
 
 <template>
@@ -18,7 +24,7 @@ import AppAddIcon from '@/components/icons/AppAddIcon.vue';
         <div class="icon-container">
             <AppFavoriteIcon width="48" height="48" class="app-icon" />
             <AppCartIcon width="48" height="48" class="app-icon" />
-            <AppAddIcon width="48" height="48" class="app-icon"/>
+            <AppAddIcon width="48" height="48" class="app-icon" @click='addObject'/>
         </div>
     </div>
 </template>

@@ -5,16 +5,18 @@ import AppInstitutionButton from '@/components/AppInstitutionButton.vue';
 import AppCategoryButton from '@/components/AppCategoryButton.vue';
 import AppCategoryName from '@/components/AppCategoryName.vue';
 import AppProductCard from '@/components/AppProductCard.vue';
+
 </script>
 
 <template>
     <div class="home-container">
+
         <AppSearchInput />
 
         <AppBanerContainer />
 
         <div class="text-container">
-            <p class="text-in-container">Подберем под бюджет</p>
+            <p class="text-in-container" >Подберем под бюджет</p>
             <p class="text-in-container">Бесплатно доставим</p>
             <p class="text-in-container">Соберем и установим</p>
         </div>
@@ -99,6 +101,13 @@ import AppProductCard from '@/components/AppProductCard.vue';
     font-size: 16px;
     color:rgb(43, 43, 43);
 }
+
+.text-in-container:hover {
+    text-decoration: underline;
+    color: #58ad17;
+    font-weight: 700;
+}
+
 .text-container {
     margin-top: 32px;
     display: flex;
