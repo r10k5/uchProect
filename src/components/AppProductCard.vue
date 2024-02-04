@@ -43,29 +43,23 @@
     flex-shrink: 0;
 }
 .app-product-name {
-margin: 8px 24px;
-
+    margin: 8px 24px;
     color: #3D3C3C;
     font-size: 14px;
     font-weight: 700;
-    font-family: Inter;
     }
 .app-product-old-price {
     margin: 4px 24px;
-
     font-size: 12px;
     color: #3D3C3C;
-    font-family: Inter;
     font-weight: 700;
     text-decoration: line-through;
 }
 .app-product-price {
     margin: 16px auto 0 24px;
-
     font-size: 24px;
     font-size: 24px;
     color: #4F901C;
-    font-family: Inter;
     font-weight: 700;
 }
 .app-card-image {

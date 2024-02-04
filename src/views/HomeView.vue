@@ -5,17 +5,20 @@ import AppInstitutionButton from '@/components/AppInstitutionButton.vue';
 import AppCategoryButton from '@/components/AppCategoryButton.vue';
 import AppCategoryName from '@/components/AppCategoryName.vue';
 import AppProductCard from '@/components/AppProductCard.vue';
-
+import AppFooter from '@/components/AppFooter.vue';
+import AppCartIcon from '@/components/icons/AppCartIcon.vue';
 </script>
 
 <template>
     <div class="home-container">
-
+        <div class="home-container__cart">
+            <AppCartIcon></AppCartIcon>
+        </div>
         <AppSearchInput />
 
         <AppBanerContainer />
 
-        <div class="text-container">
+        <div class="feature-container">
             <p class="text-in-container" >Подберем под бюджет</p>
             <p class="text-in-container">Бесплатно доставим</p>
             <p class="text-in-container">Соберем и установим</p>
@@ -34,7 +37,7 @@ import AppProductCard from '@/components/AppProductCard.vue';
 
         <div class="button-container">
             <AppInstitutionButton> Для школ </AppInstitutionButton>
-            <AppInstitutionButton> Все </AppInstitutionButton>
+            <AppInstitutionButton> Ремонтные работы и отделка </AppInstitutionButton>
             <AppInstitutionButton> Для садиков </AppInstitutionButton>
         </div>
 
@@ -48,16 +51,36 @@ import AppProductCard from '@/components/AppProductCard.vue';
 
         <div class="product-card-container">
             <AppProductCard></AppProductCard>
+            <AppProductCard></AppProductCard>
+            <AppProductCard></AppProductCard>
+            <AppProductCard></AppProductCard>
+            <AppProductCard></AppProductCard>
         </div>
+        <AppFooter/>
     </div>
 </template>
 
 <style scoped>
+.home-container__cart {
+    height: 60px;
+    width: 60px;
+    padding: 12px;
+    position: fixed;
+    background-color: #FBFBFB;
+    border-radius: 40px;
+    right: 80px;
+    bottom: 40px;
+    box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.3);
+    z-index: 999;
+}
 .product-card-container {
     margin: 32px 124px;
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(4, max-content);
     flex-shrink: 0;
-    gap: 94px;
+    column-gap: 80px;
+    row-gap: 32px;
+    justify-content: center;
 }
 .category-name {
     margin: 32px 206px;
@@ -108,7 +131,7 @@ import AppProductCard from '@/components/AppProductCard.vue';
     font-weight: 700;
 }
 
-.text-container {
+.feature-container {
     margin-top: 32px;
     display: flex;
     justify-content: center;
