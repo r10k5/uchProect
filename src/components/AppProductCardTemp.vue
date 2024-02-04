@@ -1,19 +1,10 @@
-<script setup lang="ts">
-import type { Product } from '@/services/types/cards.types';
-
-export interface AppProductCardProps {
-    card: Product;
-}
-defineProps<AppProductCardProps>();
-</script>
-
 <template>
     <div class="app-card-container">
-        <div class="app-card-image" :style="{ backgroundImage: `url(${card.photo})`}">
-        </div>
-        <p class="app-product-price"> {{ card.price }} руб </p>
+        <img class="app-card-image" src="@/components/icons/Table-test.png" />
+        <!-- далее р заменить на slot -->
+        <p class="app-product-price"> 8 599 руб </p>
         <p class="app-product-old-price"> 20 999 руб</p>
-        <p class="app-product-name">{{ card.name }}</p>
+        <p class="app-product-name">Name</p>
         <div class="colors-box">
             <div class="colors-test" style="background-color: brown;"></div>
             <div class="colors-test" style="background-color: rgb(92, 61, 61);"></div>
@@ -24,7 +15,7 @@ defineProps<AppProductCardProps>();
     </div>
 </template>
 
-<style scoped lang="scss">
+<style scoped>
 .add-to-cart-text {
     color:#4F901C;
 }
@@ -74,11 +65,6 @@ defineProps<AppProductCardProps>();
 .app-card-image {
     margin: 16px 24px;
     flex-shrink: 0;
-    width: 240px;
-    height: 240px;
-    overflow: hidden;
-    background-position: center center;
-    background-size: cover;
 }
 .app-card-container { 
     height: 472px;
