@@ -9,15 +9,27 @@ import AppProductCardTemp from '@/components/AppProductCardTemp.vue';
 import AppFooter from '@/components/AppFooter.vue';
 import AppCartIcon from '@/components/icons/AppCartIcon.vue';
 import { useCardsStore } from '@/stores/cards.store';
+import AppModalCart from '@/components/AppModalCart.vue';
+import { ref } from 'vue';
 
 const cardsStore = useCardsStore();
+const cartIsOpen = ref(false);
+
+const openModalCart = () => {
+    cartIsOpen.value = true;
+    return cartIsOpen;
+}
+
 </script>
 
 <template>
     <div class="home-container">
+        <AppModalCart class="home-modal_cart" v-if="cartIsOpen === true"/>
+
         <div class="home-container__cart">
-            <AppCartIcon></AppCartIcon>
+            <AppCartIcon @click="openModalCart"></AppCartIcon>
         </div>
+
         <AppSearchInput />
 
         <AppBanerContainer />
@@ -62,6 +74,10 @@ const cardsStore = useCardsStore();
 </template>
 
 <style scoped>
+.home-modal_cart {
+    z-index: 9999;
+    position: fixed;
+}
 .home-container__cart {
     height: 60px;
     width: 60px;
