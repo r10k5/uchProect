@@ -20,11 +20,16 @@ const openModalCart = () => {
     return cartIsOpen;
 }
 
+const closeModalCart = () => {
+    cartIsOpen.value = false;
+    return cartIsOpen;
+}
+
 </script>
 
 <template>
     <div class="home-container">
-        <AppModalCart class="home-modal_cart" v-if="cartIsOpen === true"/>
+        <AppModalCart class="home-modal_cart" v-if="cartIsOpen === true" @close="closeModalCart"/>
 
         <div class="home-container__cart">
             <AppCartIcon @click="openModalCart"></AppCartIcon>
@@ -74,10 +79,6 @@ const openModalCart = () => {
 </template>
 
 <style scoped>
-.home-modal_cart {
-    z-index: 9999;
-    position: fixed;
-}
 .home-container__cart {
     height: 60px;
     width: 60px;
