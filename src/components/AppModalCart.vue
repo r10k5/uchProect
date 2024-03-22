@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AppProductInCart from './AppProductInCart.vue';
 
 export interface AppModalCartEmits{
   (e: 'close'): void;
@@ -15,6 +16,7 @@ const closeModalWindow = () => {
     <div class="app-modal_container">
       <div class="app-modal_window">
         <button class="app-modal_button" @click="closeModalWindow"> X </button>
+        <AppProductInCart></AppProductInCart>
       </div>
     </div>
   </Teleport>
