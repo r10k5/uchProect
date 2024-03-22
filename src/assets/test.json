@@ -1,0 +1,18 @@
+[
+  {
+    "id": 123,
+    "name": "Example Product",
+    "price": 51235,
+    "article": "ABC123",
+    "description": "This is an example product description.",
+    "photo": "example_photo.jpg"
+  },
+  {
+    "id": 13,
+    "name": "Example Pr411oduct",
+    "price": 125,
+    "article": "ABC1123",
+    "description": "This 1is an example product description.",
+    "photo": "example_ph1oto.jpg"
+  }
+]

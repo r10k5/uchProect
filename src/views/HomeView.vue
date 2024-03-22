@@ -5,7 +5,6 @@ import AppInstitutionButton from '@/components/AppInstitutionButton.vue';
 import AppCategoryButton from '@/components/AppCategoryButton.vue';
 import AppCategoryName from '@/components/AppCategoryName.vue';
 import AppProductCard from '@/components/AppProductCard.vue';
-import AppProductCardTemp from '@/components/AppProductCardTemp.vue';
 import AppFooter from '@/components/AppFooter.vue';
 import AppCartIcon from '@/components/icons/AppCartIcon.vue';
 import { useCardsStore } from '@/stores/cards.store';
@@ -71,7 +70,7 @@ const closeModalCart = () => {
         <AppCategoryName class="category-name"> Рекомендуем </AppCategoryName>
 
         <div class="product-card-container">
-            <AppProductCardTemp></AppProductCardTemp>
+            
             <AppProductCard v-for="card in cardsStore.cards" :key="card.id" :card="card"></AppProductCard>
         </div>
         <AppFooter/>

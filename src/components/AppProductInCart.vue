@@ -5,32 +5,39 @@ const cardsStore = useCardsStore();
 </script>
 
 <template>
-  <div class="app-product_container">
-    <div class="app-product_container-first">
-      <div class="app-product_container-first_photo"></div>
+  <div class='product-cart-container'>
+    <div v-for="card in cardsStore.cards" :key="card.id" :card="card" class='product-cart-container__card'>
+      <div class="product-cart-container__card-photo">
+        {{ card.photo }}
+      </div>
+      <div class="product-cart-container__card-text">
+        <p>{{ card.name }}</p>
+        <p>{{ card.article }}</p>
+        <p>{{ card.price }}</p>
+        <p>{{ card.description }}</p>
+      </div>
     </div>
   </div>
-  
 </template>
 
 <style setup lang="scss">
-.app-product_container {
-  width: 90%;
-  height: 90%;
-  background-color: bisque;
+.product-cart-container {
+  width: 100%;
+  height: 100%;
+  padding: 20px 40px;
 
-  &-first{
-    width: 900px;
-    height: 100px;
-    background-color: brown;
+  &__card {
+    width: 100%;
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    padding: 8px;
 
-    &_photo {
-      height: 48px;
-      width: 48px;
-      background-color: black;
+    &-text {
+      
+    }
+    &-photo {
+
     }
   }
-    
 }
-
 </style>
