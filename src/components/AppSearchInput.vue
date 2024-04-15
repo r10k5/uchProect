@@ -3,11 +3,15 @@ import AppSearchIcon from '@/components/icons/AppSearchIcon.vue';
 import AppFavoriteIcon from '@/components/icons/AppFavoriteIcon.vue';
 import AppCartIcon from '@/components/icons/AppCartIcon.vue';
 import AppAddIcon from '@/components/icons/AppAddIcon.vue';
+import { useRouter } from 'vue-router';
 
-let isAddwindow:boolean = false;
+
+const router = useRouter();
 
 function addObject() {
-    isAddwindow = true;
+    router.push({
+        name: 'edit',
+    })
 }
 </script>
 
@@ -22,9 +26,9 @@ function addObject() {
         </div>
 
         <div class="icon-container">
-            <AppFavoriteIcon width="48" height="48" class="app-icon" />
+            <AppFavoriteIcon width="48" height="48" class="app-icon app-icon__favorite" />
             <AppCartIcon width="48" height="48" class="app-icon" />
-            <AppAddIcon width="48" height="48" class="app-icon" @click='addObject'/>
+            <AppAddIcon width="48" height="48" class="app-icon" @click="addObject"/>
         </div>
     </div>
 </template>
@@ -36,6 +40,12 @@ function addObject() {
 }
 .app-icon {
     margin-top: 6px;
+}
+.app-icon:hover {
+    cursor: pointer;
+}
+.app-icon__favorite:hover {
+    color:rgb(190, 20, 20);
 }
 .container {
     display: grid; 
