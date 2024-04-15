@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import AppSearchIcon from '@/components/icons/AppSearchIcon.vue';
 import AppFavoriteIcon from '@/components/icons/AppFavoriteIcon.vue';
-import AppCartIcon from '@/components/icons/AppCartIcon.vue';
 import AppAddIcon from '@/components/icons/AppAddIcon.vue';
 import { useRouter } from 'vue-router';
 
@@ -27,7 +26,6 @@ function addObject() {
 
         <div class="icon-container">
             <AppFavoriteIcon width="48" height="48" class="app-icon app-icon__favorite" />
-            <AppCartIcon width="48" height="48" class="app-icon" />
             <AppAddIcon width="48" height="48" class="app-icon" @click="addObject"/>
         </div>
     </div>

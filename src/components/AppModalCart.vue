@@ -29,8 +29,9 @@ const closeModalWindow = () => {
   border: none;
   width: 32px;
   height: 32px;
-  position: absolute;
-  right: 20px;
+  align-self: flex-end;
+  margin-top: 16px;
+  margin-right: 16px;
 }
 .app-modal_container {
   width: 100vw;
@@ -47,5 +48,8 @@ const closeModalWindow = () => {
   height: 500px;
   background-color: rgb(237, 241, 241);
   border-radius: 24px;
+  display: flex;
+  flex-direction: column;
+  
 }
 </style>
