@@ -7,6 +7,7 @@ defineProps<AppBanerProps>();
 </script>
 
 <template>
+    
     <img :src="image" class="app-baner" />
 </template>
 

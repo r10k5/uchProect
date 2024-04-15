@@ -33,10 +33,11 @@ const cardsStore = useCardsStore();
     padding: 8px;
 
     &-text {
-      
+      width: 80%;
     }
     &-photo {
-
+      width: 20%;
+      padding: 8px;
     }
   }
 }
