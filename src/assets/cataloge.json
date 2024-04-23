@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1,
+        "name": "Мебель",
+        "parent_id": null
+    },
+    {
+        "id": 11,
+        "name": "Стулья",
+        "parent_id": 1
+    },
+    {
+        "id": 12,
+        "name": "Столы",
+        "parent_id": 1
+    },
+    {
+        "id": 2,
+        "name": "Еда",
+        "parent_id": null
+    },
+    {
+        "id": 21,
+        "name": "Чипсы",
+        "parent_id": 2
+    }
+]

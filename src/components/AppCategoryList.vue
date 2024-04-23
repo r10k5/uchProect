@@ -1,14 +1,21 @@
 <script setup lang="ts">
+import { useCatalogeStore } from '@/stores/category.store';
+import { computed } from 'vue';
+
+const catalogStore = useCatalogeStore();
+const catalogs = computed( () => catalogStore.cataloges)
 </script>
 
 <template>
    <div class="category-list-container">
-    <p>fsdfsdfsdf</p>
+        <div v-for="cataloge in catalogs" :key="cataloge.id">
+            {{cataloge.name}}
+        </div>
    </div>
 </template>
 
 <style scoped setup lang="scss">
 .category-list-container {
-    background-color: black;
+    background-color: rgb(200, 156, 156);
 }
 </style>
