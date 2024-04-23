@@ -1,11 +1,23 @@
-import type { AxiosInstance } from "axios";
-import axios from "axios";
+import type { AxiosInstance } from 'axios';
+import axios from 'axios';
+
+import { ProductsApi } from './cards';
 
 class Api {
-  constructor(private readonly _axios: AxiosInstance) { }
+  private constructor(
+    private readonly _axios: AxiosInstance
+  ) {
+    this.products = new ProductsApi(this._axios);
+  }
+
+  public products: ProductsApi;
+
+  static from(baseUrl: string) {
+    return new Api(axios.create({
+      baseURL: baseUrl,
+      withCredentials: true,
+    }));
+  }
 }
 
-export const api = new Api(axios.create({
-  baseURL: import.meta.env.VITE_API_URL,
-  withCredentials: true,
-}));
+export const api = Api.from(import.meta.env.VITE_API_URL);
