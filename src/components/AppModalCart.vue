@@ -25,7 +25,8 @@ const closeModalWindow = () => {
 
 <style scoped lang="scss">
 .app-modal_button {
-  background-color: rgb(212, 213, 213);
+  background-color: rgb(255, 255, 255);
+  border-radius: 80%;
   border: none;
   width: 32px;
   height: 32px;

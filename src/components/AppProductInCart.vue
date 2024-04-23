@@ -11,20 +11,33 @@ const cardsStore = useCardsStore();
         {{ card.photo }}
       </div>
       <div class="product-cart-container__card-text">
-        <p>{{ card.name }}</p>
-        <p>{{ card.article }}</p>
+        <p class="card-text__name">{{ card.name }}</p>
+        <p>Артикул: {{ card.article }}</p>
         <p>{{ card.price }}</p>
-        <p>{{ card.description }}</p>
+        <p class="card-text__description">{{ card.description }}</p>
       </div>
     </div>
   </div>
 </template>
 
 <style setup lang="scss">
+.card-text__description {
+  max-width: 80%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.card-text__name {
+  font-size: 20px;
+  font-weight: 700;
+}
 .product-cart-container {
   width: 100%;
   height: 100%;
   padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 
   &__card {
     width: 100%;

@@ -14,10 +14,6 @@ defineProps<AppProductCardProps>();
         <p class="app-product-price"> {{ card.price }} руб </p>
         <p class="app-product-old-price"> 20 999 руб</p>
         <p class="app-product-name">{{ card.name }}</p>
-        <div class="colors-box">
-            <div class="colors-test" style="background-color: brown;"></div>
-            <div class="colors-test" style="background-color: rgb(92, 61, 61);"></div>
-        </div>
         <div class="add-cart-button">
             <p class="add-to-cart-text">В корзину</p>
         </div>
@@ -38,18 +34,6 @@ defineProps<AppProductCardProps>();
     justify-content: center;
     align-items: center;
     margin-left: 24px;
-}
-.colors-test {
-    height: 32px;
-    width: 32px;
-}
-.colors-box {
-    height: 32px;
-    width: 100%;
-    margin: 12px 24px;
-    display: flex;
-    gap: 8px;
-    flex-shrink: 0;
 }
 .app-product-name {
     margin: 8px 24px;
