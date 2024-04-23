@@ -25,6 +25,11 @@ const addField = () => {
       <lable for="name">Название:</lable>
       <input id="name"/>
     </div>
+
+    <div class="form-container__field">
+      <lable for="category">Категория:</lable>
+      <input id="category"/>
+    </div>
     
     <div class="form-container__field">
       <lable for="description">Описание:</lable>

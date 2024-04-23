@@ -9,6 +9,7 @@ import AppFooter from '@/components/AppFooter.vue';
 import AppCartIcon from '@/components/icons/AppCartIcon.vue';
 import { useCardsStore } from '@/stores/cards.store';
 import AppModalCart from '@/components/AppModalCart.vue';
+import AppCategoryList from '@/components/AppCategoryList.vue';
 import { ref } from 'vue';
 
 const cardsStore = useCardsStore();
@@ -46,7 +47,17 @@ const closeModalCart = () => {
 
         <div class="header">
             <div class="header-catalog">
-                <p class="header-text">Каталог</p>
+                <el-popover
+                    width="40%"
+                    trigger="hover"
+                >
+                    <template #reference>
+                        <p class="header-text" >Каталог</p>
+                    </template>
+                    <template #default>
+                        <AppCategoryList></AppCategoryList>
+                    </template>
+                </el-popover>
             </div>
             <div class="header-info">
                 <p class="header-text">Оплата и доставка</p>
@@ -54,11 +65,12 @@ const closeModalCart = () => {
                 <p class="header-text">О нас</p>
             </div>
         </div>
+        
 
         <div class="button-container">
             <AppInstitutionButton> Для школ </AppInstitutionButton>
-            <AppInstitutionButton> Ремонтные работы и отделка </AppInstitutionButton>
             <AppInstitutionButton> Для садиков </AppInstitutionButton>
+            <AppInstitutionButton> Ремонтные работы и отделка </AppInstitutionButton>
         </div>
 
         <div class="category-container">
