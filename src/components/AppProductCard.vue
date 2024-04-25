@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import type { Product } from '@/services/types/cards.types';
+import { useCartStore } from '@/stores/cart.store';
 
 export interface AppProductCardProps {
     card: Product;
 }
-defineProps<AppProductCardProps>();
+const props = defineProps<AppProductCardProps>();
+
+const cartStore = useCartStore();
+
+const addToCart = () => {
+    cartStore.addToCart(props.card);
+}
 </script>
 
 <template>
@@ -14,16 +21,13 @@ defineProps<AppProductCardProps>();
         <p class="app-product-price"> {{ card.price }} руб </p>
         <p class="app-product-old-price"> 20 999 руб</p>
         <p class="app-product-name">{{ card.name }}</p>
-        <div class="add-cart-button">
-            <p class="add-to-cart-text">В корзину</p>
-        </div>
+        <button class="add-cart-button" @click="addToCart">
+            В корзину
+        </button>
     </div>
 </template>
 
 <style scoped lang="scss">
-.add-to-cart-text {
-    color:#4F901C;
-}
 .add-cart-button {
     width: 240px;
     height: 40px;
@@ -34,6 +38,7 @@ defineProps<AppProductCardProps>();
     justify-content: center;
     align-items: center;
     margin-left: 24px;
+    color:#4F901C;
 }
 .app-product-name {
     margin: 8px 24px;

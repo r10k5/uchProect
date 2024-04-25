@@ -27,7 +27,7 @@ import AppLogoIcon from '@/components/icons/AppLogoIcon.vue';
     background-color: #f3f3f3;
 
     display: flex;
-    padding: 18px 96px;
+    padding: 12px 96px;
 
     align-items: center;
 }

@@ -20,7 +20,7 @@ function addObject() {
         <div class="app-search-input">
             <input class="search-input"/>
             <button class="search-button">
-                <AppSearchIcon width="48" height="48" />
+                <AppSearchIcon width="40" height="40" />
             </button>
         </div>
 
@@ -48,7 +48,7 @@ function addObject() {
 .container {
     display: grid; 
     gap: 104px;
-    margin: 48px auto;
+    margin: 32px auto;
     padding: 0 32px;
 
     grid-template-columns: 1fr 1fr 1fr;
@@ -60,7 +60,8 @@ function addObject() {
     outline: none;
 }
 .search-input{
-    padding: 0 12px;
+    padding: 0 16px;
+    font-size: 16px;
 }
 .search-button {
     width: 112px;
@@ -73,5 +74,9 @@ function addObject() {
     border-radius: 10px;
     background-color: #E9E8E8;
     display: flex;
+    box-shadow: #9f9f9f 0 1px 3px;
+}
+.app-search-input:hover {
+    box-shadow: #bbbbbb 0 4px 12px;
 }
 </style>

@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { useCardsStore } from '@/stores/cards.store';
+import { useCartStore } from '@/stores/cart.store';
 
-const cardsStore = useCardsStore();
+const cartStore = useCartStore();
 </script>
 
 <template>
   <div class='product-cart-container'>
-    <div v-for="card in cardsStore.cards" :key="card.id" :card="card" class='product-cart-container__card'>
+    <div v-for="product in cartStore.products" :key="product.id" class='product-cart-container__card'>
       <div class="product-cart-container__card-photo">
-        {{ card.photo }}
+        {{ product.photo }}
       </div>
       <div class="product-cart-container__card-text">
-        <p class="card-text__name">{{ card.name }}</p>
-        <p>Артикул: {{ card.article }}</p>
-        <p>{{ card.price }}</p>
-        <p class="card-text__description">{{ card.description }}</p>
+        <p class="card-text__name">{{ product.name }}</p>
+        <p>Артикул: {{ product.article }}</p>
+        <p>{{ product.price }}</p>
+        <p class="card-text__description">{{ product.description }}</p>
       </div>
     </div>
   </div>
