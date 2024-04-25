@@ -7,11 +7,13 @@ const catalogs = computed( () => catalogStore.cataloges)
 </script>
 
 <template>
-   <div class="category-list-container">
+   <router-link
+    to="/edit"
+    class="category-list-container">
         <div v-for="cataloge in catalogs" :key="cataloge.id">
             {{cataloge.name}}
         </div>
-   </div>
+    </router-link>
 </template>
 
 <style scoped setup lang="scss">
