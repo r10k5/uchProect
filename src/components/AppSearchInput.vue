@@ -3,23 +3,35 @@ import AppSearchIcon from '@/components/icons/AppSearchIcon.vue';
 import AppFavoriteIcon from '@/components/icons/AppFavoriteIcon.vue';
 import AppAddIcon from '@/components/icons/AppAddIcon.vue';
 import { useRouter } from 'vue-router';
-
+import { ref } from 'vue';
 
 const router = useRouter();
+const searchText = ref('');
 
 function addObject() {
     router.push({
         name: 'edit',
     })
 }
+
+function useSearchButton(text: string) {
+    router.push({
+        name: 'results',
+        query: {
+            q: text,
+        }
+
+    })
+}
+
 </script>
 
 <template>
     <div class="container">
         <div class="void"></div>
         <div class="app-search-input">
-            <input class="search-input"/>
-            <button class="search-button">
+            <input class="search-input" v-model="searchText"/>
+            <button class="search-button" @click="useSearchButton(searchText)">
                 <AppSearchIcon width="40" height="40" />
             </button>
         </div>
