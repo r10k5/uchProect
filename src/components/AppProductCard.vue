@@ -31,13 +31,18 @@ const addToCart = () => {
     width: 240px;
     height: 40px;
     border-radius: 10px;
-    border: 1px solid #459927;
-    background-color: #FFF;
+    border: 1px solid #57c757;
+    background-color: #fbfbfb;
     display: flex;
     justify-content: center;
     align-items: center;
     color:#4F901C;
     margin-top: 20px;
+}
+.add-cart-button:hover {
+    background-color: #57c757;
+    color:#f9f9f9;
+    box-shadow:1px 1px 4px rgba(62, 62, 62, 0.25);
 }
 .app-product-name {
     margin: 8px 0px;
