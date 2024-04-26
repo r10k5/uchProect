@@ -19,7 +19,6 @@ const addToCart = () => {
         <div class="app-card-image" :style="{ backgroundImage: `url(${card.photo})`}">
         </div>
         <p class="app-product-price"> {{ card.price }} руб </p>
-        <p class="app-product-old-price"> 20 999 руб</p>
         <p class="app-product-name">{{ card.name }}</p>
         <button class="add-cart-button" @click="addToCart">
             В корзину
@@ -37,31 +36,23 @@ const addToCart = () => {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-left: 24px;
     color:#4F901C;
+    margin-top: 20px;
 }
 .app-product-name {
-    margin: 8px 24px;
+    margin: 8px 0px;
     color: #3D3C3C;
     font-size: 14px;
     font-weight: 700;
     }
-.app-product-old-price {
-    margin: 4px 24px;
-    font-size: 12px;
-    color: #3D3C3C;
-    font-weight: 700;
-    text-decoration: line-through;
-}
 .app-product-price {
-    margin: 16px auto 0 24px;
+    margin: 16px 0px 2px;
     font-size: 24px;
     font-size: 24px;
     color: #4F901C;
     font-weight: 700;
 }
 .app-card-image {
-    margin: 16px 24px;
     flex-shrink: 0;
     width: 240px;
     height: 240px;
@@ -70,9 +61,9 @@ const addToCart = () => {
     background-size: cover;
 }
 .app-card-container { 
-    height: 472px;
     width: 288px;
     border-radius: 10px;
     box-shadow:1px 1px 4px rgba(0, 0, 0, 0.25);
+    padding: 24px 24px;
 }
 </style>
