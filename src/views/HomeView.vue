@@ -60,9 +60,13 @@ const closeModalCart = () => {
                 </el-popover>
             </div>
             <div class="header-info">
-                <p class="header-text">Оплата и доставка</p>
-                <p class="header-text">Контакты</p>
-                <p class="header-text">О нас</p>
+                <router-link
+                to="/about"
+                class="header-info">
+                    <p class="header-text">Оплата и доставка</p>
+                    <p class="header-text">Контакты</p>
+                    <p class="header-text">О нас</p>
+                </router-link>
             </div>
         </div>
         
@@ -142,7 +146,7 @@ const closeModalCart = () => {
     margin-right: 40%;
 }
 .header {
-    margin-top: 32px;
+    margin-top: 24px;
     justify-content: center;
     display: flex;
     flex-shrink: 0;
@@ -155,13 +159,13 @@ const closeModalCart = () => {
 }
 
 .text-in-container:hover {
-    text-decoration: underline;
+text-decoration: underline;
     color: #58ad17;
     font-weight: 700;
 }
 
 .feature-container {
-    margin-top: 32px;
+    margin-top: 24px;
     display: flex;
     justify-content: center;
     width: 100%;
