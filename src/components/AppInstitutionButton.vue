@@ -1,5 +1,5 @@
 <template>
-    <button class="app-institution-button">
+    <button class="app-institution-button" role="button">
         <p> 
             <slot></slot>
         </p>

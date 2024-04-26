@@ -1,5 +1,5 @@
 <template>
-    <button class="app-category-button">
+    <button class="app-category-button" role="button">
     </button>
 </template>
 

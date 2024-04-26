@@ -31,7 +31,7 @@ function useSearchButton(text: string) {
         <div class="void"></div>
         <div class="app-search-input">
             <input class="search-input" v-model="searchText"/>
-            <button class="search-button" @click="useSearchButton(searchText)">
+            <button class="search-button" @click="useSearchButton(searchText)" role="button">
                 <AppSearchIcon width="40" height="40" />
             </button>
         </div>

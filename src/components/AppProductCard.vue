@@ -20,7 +20,7 @@ const addToCart = () => {
         </div>
         <p class="app-product-price"> {{ card.price }} руб </p>
         <p class="app-product-name">{{ card.name }}</p>
-        <button class="add-cart-button" @click="addToCart">
+        <button class="add-cart-button" @click="addToCart" role="button">
             В корзину
         </button>
     </div>

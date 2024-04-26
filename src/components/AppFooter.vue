@@ -4,7 +4,7 @@
 <template>
   <div class="app-footer">
     <div class="app-footer-pagination">
-      <button> ← </button>
+      <button role="button"> ← </button>
       <button> 1 </button>
       <button> 2 </button>
       <button> ... </button>

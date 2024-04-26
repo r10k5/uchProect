@@ -15,7 +15,7 @@ const closeModalWindow = () => {
   <Teleport to="#app-modals">
     <div class="app-modal_container">
       <div class="app-modal_window">
-        <button class="app-modal_button" @click="closeModalWindow"> X </button>
+        <button class="app-modal_button" @click="closeModalWindow" role="button"> X </button>
         <AppProductInCart></AppProductInCart>
       </div>
     </div>
