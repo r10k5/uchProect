@@ -1,10 +1,17 @@
 <script setup lang="ts">
 import AppLogoIcon from '@/components/icons/AppLogoIcon.vue';
+import router from '@/router';
+
+function returnToHome() {
+    router.push({
+        name: 'home',
+    })
+}
 </script>
 
 <template>
     <div class="app-header">
-        <AppLogoIcon width="250" height="40" class="header-icon"/>
+        <AppLogoIcon width="250" height="40" class="header-icon" @click="returnToHome"/>
         <div class="header-info">
             <p>support@руруру.com</p>
             <p>+84809537065</p>
