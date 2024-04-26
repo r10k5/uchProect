@@ -64,7 +64,17 @@ const closeModalCart = () => {
                 to="/about"
                 class="header-info">
                     <p class="header-text">Оплата и доставка</p>
+                </router-link>
+
+                <router-link
+                to="/about"
+                class="header-info">
                     <p class="header-text">Контакты</p>
+                </router-link>
+
+                <router-link
+                to="/about"
+                class="header-info">
                     <p class="header-text">О нас</p>
                 </router-link>
             </div>
