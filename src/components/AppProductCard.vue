@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Product } from '@/services/types/cards.types';
 import { useCartStore } from '@/stores/cart.store';
+import AppDeleteIcon from './icons/AppDeleteIcon.vue';
 
 export interface AppProductCardProps {
     card: Product;
@@ -16,10 +17,20 @@ const addToCart = () => {
 
 <template>
     <div class="app-card-container">
-        <div class="app-card-image" :style="{ backgroundImage: `url(${card.photo})`}">
+        <button class="app-delete-button" role="button">
+            <AppDeleteIcon width="40px" height="40px" class="app-delete-button__icon" />
+        </button>
+        
+
+        <div class="app-card-image"  
+        :style="{ backgroundImage: `url(${card.photo})`}">
         </div>
-        <p class="app-product-price"> {{ card.price }} руб </p>
-        <p class="app-product-name">{{ card.name }}</p>
+        <p class="app-product-price"> 
+            {{ card.price }} руб 
+        </p>
+        <p class="app-product-name">
+            {{ card.name }}
+        </p>
         <button class="add-cart-button" @click="addToCart" role="button">
             В корзину
         </button>
@@ -27,6 +38,17 @@ const addToCart = () => {
 </template>
 
 <style scoped lang="scss">
+.app-delete-button {
+    position: absolute;
+    right: 20px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    &__icon {
+        color: rgb(199, 8, 8);
+    }
+}
+
 .add-cart-button {
     width: 240px;
     height: 40px;
@@ -70,5 +92,6 @@ const addToCart = () => {
     border-radius: 10px;
     box-shadow:1px 1px 4px rgba(0, 0, 0, 0.25);
     padding: 24px 24px;
+    position: relative;
 }
 </style>

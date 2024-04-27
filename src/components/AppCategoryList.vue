@@ -33,6 +33,7 @@ const getSubCategories = (categoryId: number) => {
     background-color: rgb(200, 156, 156);
     &__text {
         font-size: 20px;
+        margin-bottom: 4px;
     }
     &__sub-category {
         display: flex;
