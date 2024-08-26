@@ -8,7 +8,7 @@ const cartStore = useCartStore();
   <div class='product-cart-container'>
     <div v-for="product in cartStore.products" :key="product.id" class='product-cart-container__card'>
       <div class="product-cart-container__card-photo">
-        {{ product.photo }}
+        <img :src="product.photo" />
       </div>
       <div class="product-cart-container__card-text">
         <p class="card-text__name">{{ product.name }}</p>
@@ -49,8 +49,14 @@ const cartStore = useCartStore();
       width: 80%;
     }
     &-photo {
-      width: 20%;
+      max-width: 20%;
       padding: 8px;
+      display: flex;
+      align-items: center;
+      
+      img {
+        width: 100%;
+      }
     }
   }
 }

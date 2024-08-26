@@ -1,8 +1,8 @@
 import { api } from "@/services";
-import type { Product } from "@/services/types/cards.types";
 import { defineStore } from "pinia";
 import { ref } from "vue";
 import testCards from "@/assets/test.json";
+import type { Product } from "@/services/api/cards/types";
 
 export const useCardsStore = defineStore('cardsStore', () => {
   const cards = ref<Product[]>([...testCards]);
@@ -15,5 +15,5 @@ export const useCardsStore = defineStore('cardsStore', () => {
     cards.value = await api.products.getProducts();
   }
 
-  return { cards, addCardLocal, getCards }
+  return { cards, addCardLocal, getCards };
 });

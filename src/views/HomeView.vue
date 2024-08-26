@@ -13,6 +13,9 @@ import AppCategoryList from '@/components/AppCategoryList.vue';
 import { ref } from 'vue';
 
 const cardsStore = useCardsStore();
+
+cardsStore.getCards();
+
 const cartIsOpen = ref(false);
 
 const openModalCart = () => {
@@ -40,7 +43,7 @@ const closeModalCart = () => {
         <AppBanerContainer />
 
         <div class="feature-container">
-            <p class="text-in-container" >Подберем под бюджет</p>
+            <p class="text-in-container">Подберем под бюджет</p>
             <p class="text-in-container">Бесплатно доставим</p>
             <p class="text-in-container">Соберем и установим</p>
         </div>
@@ -96,7 +99,6 @@ const closeModalCart = () => {
         <AppCategoryName class="category-name"> Рекомендуем </AppCategoryName>
 
         <div class="product-card-container">
-            
             <AppProductCard v-for="card in cardsStore.cards" :key="card.id" :card="card"></AppProductCard>
         </div>
         <AppFooter/>
@@ -119,7 +121,7 @@ const closeModalCart = () => {
 .product-card-container {
     margin: 32px 124px;
     display: grid;
-    grid-template-columns: repeat(4, max-content);
+    grid-template-columns: repeat(3, max-content);
     flex-shrink: 0;
     column-gap: 80px;
     row-gap: 32px;

@@ -5,12 +5,13 @@ import { useAppStore } from './stores/app.store';
 import { computed } from 'vue';
 
 const appStore = useAppStore();
-const appRootModalOpen = computed( () => { 
+const appRootModalOpen = computed(() => { 
   if(appStore.isModalOpen) {
     return 'app-root-modal-open'
   } 
+
   return '';
- })
+});
 </script>
 
 <template>
