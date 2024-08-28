@@ -5,7 +5,7 @@ import type { Product } from "../cards/types";
 export class CartApi {
   constructor(private readonly _axios: AxiosInstance) {}
 
-  async getCart() {
+  async getCart(): Promise<CartProduct[]> {
     const response = localStorage.getItem('cart');
 
     if (!response) {
@@ -20,14 +20,7 @@ export class CartApi {
       })),
     );
 
-    for (const product of cart) {
-      const response = await this._axios.get<Product>(`/products/${product.id}`);
-
-      products.push({
-        ...response.data,
-        quantity: product.quantity
-      });
-    }
+    return products;
   }
 
   async updateCart(cart: CartProduct[]) {

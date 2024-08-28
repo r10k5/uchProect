@@ -1,3 +1,4 @@
+import { api } from "@/services";
 import type { Product } from "@/services/api/cards/types";
 import type { CartProduct } from "@/services/api/cart/types";
 import { defineStore } from "pinia";
@@ -5,6 +6,8 @@ import { ref } from "vue"
 
 export const useCartStore = defineStore('cartsStore', () => {
     const products = ref<CartProduct[]>([]);
+
+    api.cart.getCart().then((value) => (products.value = value));
 
     const addToCart = (product: Product) => {
         if (hasProduct(product.id)) {
@@ -21,6 +24,8 @@ export const useCartStore = defineStore('cartsStore', () => {
 
             products.value.push(productWithQuantity);
         }
+
+        api.cart.updateCart(products.value);
     }
 
     const removeFromCart = (id: number) => {
@@ -33,6 +38,8 @@ export const useCartStore = defineStore('cartsStore', () => {
         } else {
             products.value = products.value.filter((p) => p.id !== id);
         }
+
+        api.cart.updateCart(products.value);
     }
 
     const hasProduct = (id: number) => {

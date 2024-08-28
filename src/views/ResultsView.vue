@@ -9,7 +9,7 @@ const searchText = computed(() => route.query.q ?? "");
 
 <template>
     <div>
-        <p >Результат по запросу: "{{ searchText }}" </p>
+        <p>Результат по запросу: "{{ searchText }}" </p>
     </div>
 </template>
 
