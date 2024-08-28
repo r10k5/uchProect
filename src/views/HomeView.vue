@@ -34,8 +34,8 @@ const closeModalCart = () => {
     <div class="home-container">
         <AppModalCart class="home-modal_cart" v-if="cartIsOpen === true" @close="closeModalCart"/>
 
-        <div class="home-container__cart">
-            <AppCartIcon @click="openModalCart"></AppCartIcon>
+        <div class="home-container__cart" @click="openModalCart" role="button">
+            <AppCartIcon />
         </div>
 
         <AppSearchInput />
