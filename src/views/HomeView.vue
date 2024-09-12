@@ -11,9 +11,12 @@ import { useCardsStore } from '@/stores/cards.store';
 import AppModalCart from '@/components/AppModalCart.vue';
 import AppCategoryList from '@/components/AppCategoryList.vue';
 import { ref } from 'vue';
+import { useCatalogeStore } from '@/stores/category.store';
 
 const cardsStore = useCardsStore();
+const categoryStore = useCatalogeStore();
 
+categoryStore.getCategories();
 cardsStore.getCards();
 
 const cartIsOpen = ref(false);
