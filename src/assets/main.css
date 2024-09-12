@@ -5,6 +5,20 @@
   box-sizing: border-box;
  }
 
+.strikethrough {
+  position: relative;
+}
+.strikethrough:before {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 50%;
+  right: 0;
+  border-top: 2px solid;
+  border-color: inherit;
+  transform: rotate(-5deg);
+}
+
 body {
   margin: 0;
   background-color: #FBFBFB;

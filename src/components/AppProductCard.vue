@@ -1,6 +1,8 @@
 <script setup lang="ts">
 import type { Product } from '@/services/api/cards/types';
+import { FieldType } from '@/services/api/fields/types';
 import { useCartStore } from '@/stores/cart.store';
+import Decimal from 'decimal.js';
 import { computed } from 'vue';
 import AppDeleteIcon from './icons/AppDeleteIcon.vue';
 
@@ -30,6 +32,19 @@ const productInCartCount = computed(() => {
 
     return 0;
 });
+
+const discount = computed(() =>
+    props.card.fields.find((field) => field.type === FieldType.Discount)?.value
+);
+const priceWithDiscount = computed(() => {
+    if (discount.value) {
+        const price = new Decimal(props.card.price);
+        const discountDecimal = new Decimal(discount.value);
+        return price.sub(price.mul(discountDecimal));
+    }
+
+    return props.card.price;
+})
 </script>
 
 <template>
@@ -41,9 +56,21 @@ const productInCartCount = computed(() => {
 
         <div class="app-card-image" :style="{ backgroundImage: `url(${card.photo})` }">
         </div>
-        <p class="app-product-price">
-            {{ card.price }} руб
-        </p>
+        <div class="app-product-price-container">
+            <p
+                class="app-product-price"
+                :class="{ 'strikethrough app-product-price__discount': discount }"
+            >
+                {{ card.price }} руб
+            </p>
+
+            <p
+                v-if="discount"
+                class="app-product-price app-product-price__after-discount"
+            >
+                {{ priceWithDiscount }} руб
+            </p>
+        </div>
         <p class="app-product-name">
             {{ card.name }}
         </p>
@@ -68,6 +95,11 @@ const productInCartCount = computed(() => {
 </template>
 
 <style scoped lang="scss">
+.app-card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 .app-card-container:hover > .app-delete-button {
     opacity: 1;
 }
@@ -109,10 +141,10 @@ const productInCartCount = computed(() => {
 }
 
 .app-product-name {
-    margin: 8px 0px;
     color: #3D3C3C;
     font-size: 14px;
     font-weight: 700;
+    margin: 0;
 }
 
 .app-product-cart-buttons {
@@ -151,16 +183,37 @@ const productInCartCount = computed(() => {
     }
 }
 
+.app-product-price-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: max-content;
+    margin-top: 8px;
+}
+
 .app-product-price {
-    margin: 16px 0px 2px;
-    font-size: 24px;
     font-size: 24px;
     color: #4F901C;
     font-weight: 700;
+    width: max-content;
+    margin: 0;
+
+    &__after-discount {
+        font-size: 24px;
+        margin: 0;
+    }
+
+    &__discount {
+        margin: 0;
+        font-size: 18px;
+        color: #b5a4a4;
+    }
 }
 
 .app-card-image {
     flex-shrink: 0;
+    margin-bottom: auto;
     width: 240px;
     height: 240px;
     overflow: hidden;
