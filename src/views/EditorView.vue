@@ -15,7 +15,7 @@ const description = ref('');
 const photo = ref('');
 const article = ref('');
 const name = ref('');
-const price = ref(0);
+const price = ref('0');
 
 
 const addField = () => {
@@ -36,6 +36,7 @@ const addNewCard = () => {
     article: article.value,
     photo: photo.value,
     description: description.value,
+    fields: []
   });
 }
 </script>

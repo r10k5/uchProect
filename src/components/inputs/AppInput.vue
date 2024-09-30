@@ -24,7 +24,7 @@ const props = withDefaults(
   }
 )
 
-const updateValue = (event: InputEvent) => {
+const updateValue = (event: Event) => {
   const value = (event.target as HTMLInputElement).value
   emit('update:modelValue', value)
 }
