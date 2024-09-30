@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import type { Product } from '@/services/types/cards.types';
 import { useCardsStore } from '@/stores/cards.store';
 import { ref } from 'vue';
+import AppInput from '@/components/inputs/AppInput.vue';
 
 type FieldType = {
   fieldType: 'number' | 'string',
@@ -46,43 +46,42 @@ const addNewCard = () => {
     Добавление продукта
   </h1>
   <div class="form-container">
-    <div class="form-container__field">
-      <lable for="name">Название:</lable>
-      <input id="name" v-model="name" />
-    </div>
+    <app-input v-model="name" id="name">
+      <template #label>Название</template>
+    </app-input>
 
     <div class="form-container__field">
       <lable for="category">Категория:</lable>
       <input id="category" />
     </div>
-    
-    <div class="form-container__field">
-      <lable for="description">Описание:</lable>
-      <input id="description" v-model="description"/>
-    </div>
 
-    <div class="form-container__field">
-      <lable for="price">Стоимость:</lable>
-      <input id="price" v-model="price"/>
-    </div>
+    <app-input v-model="description" id="description" type="long">
+      <template #label>Описание</template>
+    </app-input>
+
+    <app-input v-model="price" id="price" type="number">
+      <template #label>Стоимость</template>
+    </app-input>
     
     <div class="form-container__field">
       <lable for="photo">Загрузить изображение</lable>
       <input id="photo" v-model="photo"/>
     </div>
     
-    <div class="form-container__field">
-      <lable for="article">Артикул:</lable>
-      <input id="article" v-model="article"/>
-    </div>
+    <app-input v-model="article" id="article">
+      <template #label>Артикул</template>
+    </app-input>
 
     <div v-for="(field, index) in fields" :key="index" class="form-container__field">
-      <lable>Название поля</lable>
-      <input v-model="field.name"/>
-      <lable>Значение поля</lable>
-      <input v-model="field.value"/>
-      <lable>Тип поля</lable>
-      <input v-model="field.fieldType"/>
+      <app-input v-model="field.name" :id="`field-name-${index}`">
+        <template #label>Название поля</template>
+      </app-input>
+      <app-input v-model="field.value" :id="`field-value-${index}`">
+        <template #label>Значение поля</template>
+      </app-input>
+      <app-input v-model="field.fieldType" :id="`field-type-${index}`">
+        <template #label>Тип поля</template>
+      </app-input>
     </div>
 
     <button type="button" @click="addField">Добавить поле</button>
@@ -94,6 +93,7 @@ const addNewCard = () => {
 <style scoped lang="scss">
 .editor-container {
   width: 100%;
+  padding: 0px 32px;
 
   &__header {
     font-size: 20px;
