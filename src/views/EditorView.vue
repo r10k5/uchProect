@@ -62,9 +62,9 @@ const selected = ref(null);
     </app-input>
 
     <div class="form-container__field">
-      <AppSelector id="categories" :items="categories" v-model="selected">
+      <app-selector id="categories" :items="categories" v-model="selected">
         <template #label>Категория</template>
-      </AppSelector>
+      </app-selector>
     </div>
 
     <app-input v-model="description" id="description" type="long">

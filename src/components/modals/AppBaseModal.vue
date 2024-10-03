@@ -62,7 +62,7 @@ defineExpose(manager)
 
 <template>
   <Teleport to="#app-modals">
-    <Transition>
+    <Transition name="app-modal-animation">
       <div v-if="isOpen" class="app-modal__container" @click="clickOutside">
         <div class="app-modal__window">
           <div v-if="showCloseButton || !!slots['header']" class="modal-window__header">
@@ -91,6 +91,25 @@ defineExpose(manager)
 </template>
 
 <style scoped lang="scss">
+.app-modal-animation-enter-active {
+  animation: bounce-in 0.5s;
+}
+.app-modal-animation-leave-active {
+  animation: bounce-in 0.5s reverse;
+}
+
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.25);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
 .app-modal__container {
   position: fixed;
   top: 0;

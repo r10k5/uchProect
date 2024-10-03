@@ -32,7 +32,7 @@ const selectItem = (item: AppSelectorItem) => {
 <template>
   <div @click="openModal">
     <slot />
-    <AppBaseModal ref="selector-modal" :show-close-button="false">
+    <app-base-modal ref="selector-modal" :show-close-button="false">
       <div
         v-for="item in props.items"
         :key="item.id.toString()"
@@ -42,7 +42,7 @@ const selectItem = (item: AppSelectorItem) => {
       >
         {{ item.name }}
       </div>
-    </AppBaseModal>
+    </app-base-modal>
   </div>
 </template>
 

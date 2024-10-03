@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { computed, useSlots } from 'vue'
-import type { AppSelectorItem } from './app-selector.types'
 import AppSelectorModal from '../modals/AppSelectorModal.vue'
+import type { AppSelectorItem } from './app-selector.types'
 
 export interface AppSelectorProps {
   items: AppSelectorItem[]
@@ -33,14 +33,11 @@ const currentText = computed(() => props.modelValue?.name || props.label || '–ù–
     <label v-if="!!slots['label']" class="selector-block__label">
       <slot name="label" :for="props.id" />
     </label>
-    <AppSelectorModal :items="props.items" @select="emit('update:modelValue', $event)">
-      <div
-        :id="props.id"
-        class="selector-block__current-value"
-      >
+    <app-selector-modal :items="props.items" @select="emit('update:modelValue', $event)">
+      <div :id="props.id" class="selector-block__current-value">
         <p>{{ currentText }}</p>
       </div>
-    </AppSelectorModal>
+    </app-selector-modal>
   </div>
 </template>
 
@@ -50,9 +47,9 @@ const currentText = computed(() => props.modelValue?.name || props.label || '–ù–
   flex-direction: row;
   align-items: center;
   gap: 4px;
-  
+
   .selector-block__current-value {
-    border: 2px solid #55A850;
+    border: 2px solid #55a850;
     cursor: pointer;
     padding: 0 16px;
     display: flex;
