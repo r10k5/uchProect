@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AppFileInput from '@/components/inputs/AppFileInput.vue';
 import AppInput from '@/components/inputs/AppInput.vue';
 import AppSelector from '@/components/inputs/AppSelector.vue';
 import { useCardsStore } from '@/stores/cards.store';
@@ -14,7 +15,7 @@ type FieldType = {
 const fields = ref<FieldType[]>([]);
 
 const description = ref('');
-const photo = ref('');
+const photo = ref<File | null>(null);
 const article = ref('');
 const name = ref('');
 const price = ref('0');
@@ -39,7 +40,7 @@ const addNewCard = () => {
     name: name.value,
     price: price.value,
     article: article.value,
-    photo: photo.value,
+    photo: photo.value?.name ?? '',
     description: description.value,
     fields: []
   });
@@ -76,8 +77,10 @@ const selected = ref(null);
     </app-input>
     
     <div class="form-container__field">
-      <lable for="photo">Загрузить изображение</lable>
-      <input id="photo" v-model="photo"/>
+      <label for="photo">Изображение</label>
+      <app-file-input v-model="photo" id="photo" type="file" accept="image/*">
+        {{ photo?.name ?? 'Загрузить изображение' }}
+      </app-file-input>
     </div>
     
     <app-input v-model="article" id="article">
@@ -117,6 +120,7 @@ const selected = ref(null);
   gap: 16px;
   &__field {
     display: flex;
+    align-items: center;
     gap: 8px;
   }
 }

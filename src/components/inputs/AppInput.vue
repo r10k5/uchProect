@@ -33,8 +33,8 @@ const updateValue = (event: Event) => {
 
 <template>
   <div class="app__input-block">
-    <label v-if="!!slots['label']" class="input-block__label">
-      <slot name="label" :for="props.id" />
+    <label v-if="!!slots['label']" class="input-block__label" :for="props.id">
+      <slot name="label" />
     </label>
     <input
       v-if="props.type !== 'long'"
@@ -56,7 +56,7 @@ const updateValue = (event: Event) => {
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .app__input-block {
   display: flex;
   flex-direction: column;

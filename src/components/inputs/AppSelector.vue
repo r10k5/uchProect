@@ -30,8 +30,8 @@ const currentText = computed(() => props.modelValue?.name || props.label || '–ù–
 
 <template>
   <div class="app__selector-block">
-    <label v-if="!!slots['label']" class="selector-block__label">
-      <slot name="label" :for="props.id" />
+    <label v-if="!!slots['label']" class="selector-block__label" :for="props.id">
+      <slot name="label" />
     </label>
     <app-selector-modal :items="props.items" @select="emit('update:modelValue', $event)">
       <div :id="props.id" class="selector-block__current-value">
@@ -41,7 +41,7 @@ const currentText = computed(() => props.modelValue?.name || props.label || '–ù–
   </div>
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .app__selector-block {
   display: flex;
   flex-direction: row;
