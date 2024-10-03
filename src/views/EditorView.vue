@@ -1,7 +1,8 @@
 <script setup lang="ts">
+import AppInput from '@/components/inputs/AppInput.vue';
+import AppSelector from '@/components/inputs/AppSelector.vue';
 import { useCardsStore } from '@/stores/cards.store';
 import { ref } from 'vue';
-import AppInput from '@/components/inputs/AppInput.vue';
 
 type FieldType = {
   fieldType: 'number' | 'string',
@@ -39,6 +40,19 @@ const addNewCard = () => {
     fields: []
   });
 }
+
+const testSelector = [
+  { id: 1, name: 'test' },
+  { id: 2, name: 'test2' },
+  { id: 3, name: 'test3' },
+  { id: 4, name: 'test4' },
+  { id: 5, name: 'test5' },
+  { id: 6, name: 'test6' },
+  { id: 7, name: 'test7' },
+  { id: 8, name: 'test8' },
+  { id: 9, name: 'test9' },
+]
+const selected = ref(null);
 </script>
 
 <template>
@@ -52,8 +66,9 @@ const addNewCard = () => {
     </app-input>
 
     <div class="form-container__field">
-      <lable for="category">Категория:</lable>
-      <input id="category" />
+      <AppSelector id="categories" :items="testSelector" v-model="selected">
+        <template #label>Категория</template>
+      </AppSelector>
     </div>
 
     <app-input v-model="description" id="description" type="long">

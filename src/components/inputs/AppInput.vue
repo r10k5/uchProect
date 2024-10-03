@@ -1,4 +1,6 @@
 <script lang="ts" setup>
+import { useSlots } from 'vue'
+
 export interface AppInputProps {
   placeholder?: string
   modelValue: string
@@ -16,13 +18,12 @@ export interface AppSlots {
   label(): any
 }
 
+defineSlots<AppSlots>()
 const emit = defineEmits<AppInputEmits>()
-const props = withDefaults(
-  defineProps<AppInputProps>(),
-  {
-    type: 'text'
-  }
-)
+const props = withDefaults(defineProps<AppInputProps>(), {
+  type: 'text'
+})
+const slots = useSlots()
 
 const updateValue = (event: Event) => {
   const value = (event.target as HTMLInputElement).value
@@ -32,7 +33,7 @@ const updateValue = (event: Event) => {
 
 <template>
   <div class="app__input-block">
-    <label class="input-block__label">
+    <label v-if="!!slots['label']" class="input-block__label">
       <slot name="label" :for="props.id" />
     </label>
     <input
@@ -62,12 +63,12 @@ const updateValue = (event: Event) => {
   gap: 4px;
 
   .input-block__input {
-    border: 2px solid #55A850;
+    border: 2px solid #55a850;
     font-size: 16px;
     border-radius: 8px;
     padding: 8px 12px;
     max-width: 100%;
-    min-height: 16px + 24px;
+    min-height: 40px;
     min-width: 10rem;
     line-height: 1rem;
   }
