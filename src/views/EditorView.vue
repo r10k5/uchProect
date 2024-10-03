@@ -2,7 +2,8 @@
 import AppInput from '@/components/inputs/AppInput.vue';
 import AppSelector from '@/components/inputs/AppSelector.vue';
 import { useCardsStore } from '@/stores/cards.store';
-import { ref } from 'vue';
+import { useCatalogeStore } from '@/stores/category.store';
+import { computed, ref } from 'vue';
 
 type FieldType = {
   fieldType: 'number' | 'string',
@@ -18,6 +19,9 @@ const article = ref('');
 const name = ref('');
 const price = ref('0');
 
+const categoriesStore = useCatalogeStore();
+
+categoriesStore.getCategories()
 
 const addField = () => {
   fields.value.push({
@@ -41,17 +45,9 @@ const addNewCard = () => {
   });
 }
 
-const testSelector = [
-  { id: 1, name: 'test' },
-  { id: 2, name: 'test2' },
-  { id: 3, name: 'test3' },
-  { id: 4, name: 'test4' },
-  { id: 5, name: 'test5' },
-  { id: 6, name: 'test6' },
-  { id: 7, name: 'test7' },
-  { id: 8, name: 'test8' },
-  { id: 9, name: 'test9' },
-]
+const categories = computed(
+  () => categoriesStore.cataloges
+)
 const selected = ref(null);
 </script>
 
@@ -66,7 +62,7 @@ const selected = ref(null);
     </app-input>
 
     <div class="form-container__field">
-      <AppSelector id="categories" :items="testSelector" v-model="selected">
+      <AppSelector id="categories" :items="categories" v-model="selected">
         <template #label>Категория</template>
       </AppSelector>
     </div>

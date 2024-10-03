@@ -102,6 +102,12 @@ defineExpose(manager)
   align-items: center;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
+  overflow: hidden;
+}
+
+.app-modal__content {
+  max-height: 100%;
+  overflow-y: auto;
 }
 
 .app-modal__window {
@@ -141,6 +147,7 @@ defineExpose(manager)
 .app-modal__window {
   min-width: 450px;
   min-height: 250px;
+  max-height: 80%;
   background-color: rgb(237, 241, 241);
   border-radius: 24px;
   display: flex;

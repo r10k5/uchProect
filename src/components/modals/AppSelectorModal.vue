@@ -37,6 +37,7 @@ const selectItem = (item: AppSelectorItem) => {
         v-for="item in props.items"
         :key="item.id.toString()"
         class="selector-modal__row"
+        role="button"
         @click="selectItem(item)"
       >
         {{ item.name }}
@@ -47,8 +48,7 @@ const selectItem = (item: AppSelectorItem) => {
 
 <style lang="scss" scoped>
 .selector-modal__row {
-  padding: 16px 16px;
-  cursor: pointer;
+  padding: 16px;
   border-bottom: 1px solid #cfcfcf;
   background-color: transparent;
 
