@@ -165,7 +165,6 @@ defineExpose(manager)
 
 .app-modal__window {
   min-width: 450px;
-  min-height: 250px;
   max-height: 80%;
   background-color: rgb(237, 241, 241);
   border-radius: 24px;

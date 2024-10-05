@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import AppButton from '@/components/buttons/AppButton.vue';
+import type { AppSelectorItem } from '@/components/inputs/app-selector.types';
 import AppFileInput from '@/components/inputs/AppFileInput.vue';
 import AppInput from '@/components/inputs/AppInput.vue';
 import AppSelector from '@/components/inputs/AppSelector.vue';
@@ -8,12 +9,26 @@ import { useCatalogeStore } from '@/stores/category.store';
 import { computed, ref } from 'vue';
 
 type FieldType = {
-  fieldType: 'number' | 'string',
+  fieldType: AppSelectorItem,
   value: string,
   name: string,
 }
 
 const fields = ref<FieldType[]>([]);
+const possibleFields: AppSelectorItem[] = [
+  {
+    id: 'discount',
+    name: 'Скидка',
+  },
+  {
+    id: 'string',
+    name: 'Строка',
+  },
+  {
+    id: 'integer',
+    name: 'Целое число',
+  }
+];
 
 const description = ref('');
 const photo = ref<File | null>(null);
@@ -27,7 +42,7 @@ categoriesStore.getCategories()
 
 const addField = () => {
   fields.value.push({
-    fieldType: 'number',
+    fieldType: { id: 'integer', name: 'Целое число' },
     value: '',
     name: '',
   })
@@ -50,7 +65,7 @@ const addNewCard = () => {
 const categories = computed(
   () => categoriesStore.cataloges
 )
-const selected = ref(null);
+const selectedCategory = ref(null);
 </script>
 
 <template>
@@ -64,7 +79,7 @@ const selected = ref(null);
     </app-input>
 
     <div class="form-container__field">
-      <app-selector id="categories" :items="categories" v-model="selected">
+      <app-selector id="categories" :items="categories" v-model="selectedCategory">
         <template #label>Категория</template>
       </app-selector>
     </div>
@@ -95,9 +110,9 @@ const selected = ref(null);
       <app-input v-model="field.value" :id="`field-value-${index}`">
         <template #label>Значение поля</template>
       </app-input>
-      <app-input v-model="field.fieldType" :id="`field-type-${index}`">
+      <app-selector :id="`field-type-${index}`" :items="possibleFields" v-model="field.fieldType" column>
         <template #label>Тип поля</template>
-      </app-input>
+      </app-selector>
     </div>
 
     <app-button type="secondary" @click="addField">Добавить поле</app-button>
@@ -119,6 +134,7 @@ const selected = ref(null);
   display:flex;
   flex-direction: column;
   gap: 16px;
+
   &__field {
     display: flex;
     align-items: center;
