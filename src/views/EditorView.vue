@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import AppButton from '@/components/buttons/AppButton.vue';
 import AppFileInput from '@/components/inputs/AppFileInput.vue';
 import AppInput from '@/components/inputs/AppInput.vue';
 import AppSelector from '@/components/inputs/AppSelector.vue';
@@ -99,8 +100,8 @@ const selected = ref(null);
       </app-input>
     </div>
 
-    <button type="button" @click="addField">Добавить поле</button>
-    <button @click="addNewCard">Сохранить</button>
+    <app-button type="secondary" @click="addField">Добавить поле</app-button>
+    <app-button @click="addNewCard">Сохранить</app-button>
   </div>
 </div>
 </template>
