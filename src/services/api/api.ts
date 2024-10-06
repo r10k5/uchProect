@@ -28,7 +28,13 @@ class Api {
   private static readonly EXPIRATION_SUB = 60 * 1000
 
   public isAuthorized() {
-    return this._expired && Date.now() - Api.EXPIRATION_SUB < this._expired
+    console.log({
+      expires: this._expired,
+      now: Date.now(),
+      sub: Api.EXPIRATION_SUB,
+      result: this._expired && Date.now() - Api.EXPIRATION_SUB < this._expired
+    })
+    return !!this._expired && Date.now() - Api.EXPIRATION_SUB < this._expired
   }
 
   public async authorize(username: string, password: string) {
@@ -49,7 +55,7 @@ class Api {
       throw mapError(response)
     }
 
-    this._expired = response.data.expires
+    this._expired = response.data.expires * 1000
     this._axios.defaults.headers['Authorization'] = `Bearer ${response.data.access_token}`
 
     return true
@@ -73,7 +79,7 @@ class Api {
       return false
     }
 
-    this._expired = response.data.expires
+    this._expired = response.data.expires * 1000
     this._axios.defaults.headers['Authorization'] = `Bearer ${response.data.access_token}`
   }
 

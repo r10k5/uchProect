@@ -1,17 +1,9 @@
 import { api } from '@/services'
-import type {
-  NavigationGuardNext,
-  RouteLocationNormalizedGeneric,
-  RouteLocationNormalizedLoadedGeneric
-} from 'vue-router'
+import type { NavigationGuard } from 'vue-router'
 
-export const authGuard = (
-  to: RouteLocationNormalizedGeneric,
-  from: RouteLocationNormalizedLoadedGeneric,
-  next: NavigationGuardNext
-) => {
+export const authGuard: NavigationGuard = (_to, _from, next) => {
   if (api.isAuthorized()) {
-    return to
+    return next()
   } else {
     return next({ name: 'home' })
   }
