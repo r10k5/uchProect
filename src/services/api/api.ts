@@ -11,7 +11,7 @@ import { ServicesApi } from './services'
 
 class Api {
   private constructor(private _axios: AxiosInstance) {
-    this.products = new ProductsApi(this._axios)
+    this.products = new ProductsApi(this._axios, this)
     this.cart = new CartApi(this._axios)
     this.categories = new CategoriesApi(this._axios)
     this.orders = new OrdersApi(this._axios)
@@ -28,12 +28,6 @@ class Api {
   private static readonly EXPIRATION_SUB = 60 * 1000
 
   public isAuthorized() {
-    console.log({
-      expires: this._expired,
-      now: Date.now(),
-      sub: Api.EXPIRATION_SUB,
-      result: this._expired && Date.now() - Api.EXPIRATION_SUB < this._expired
-    })
     return !!this._expired && Date.now() - Api.EXPIRATION_SUB < this._expired
   }
 
@@ -81,6 +75,8 @@ class Api {
 
     this._expired = response.data.expires * 1000
     this._axios.defaults.headers['Authorization'] = `Bearer ${response.data.access_token}`
+
+    return true
   }
 
   static from(baseUrl: string) {
