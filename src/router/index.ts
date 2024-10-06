@@ -27,6 +27,15 @@ const router = createRouter({
       name: 'results',
       component: ResultsView
     },
+    {
+      path: '/admin',
+      name: 'admin-panel',
+      component: () => import('@/views/AdminEnterView.vue')
+    },
+    {
+      path: '/:pathMatch(.*)*',
+      redirect: '/'
+    }
   ]
 })
 
