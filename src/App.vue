@@ -30,7 +30,7 @@ const appRootModalOpen = computed(() => {
   </div>
 </template>
 
-<style scoped>
+<style lang="scss" scoped>
 .app-root-modal-open {
   overflow: hidden;
 }
@@ -40,7 +40,20 @@ const appRootModalOpen = computed(() => {
   left: 0;
 }
 #app-root {
-  overflow: auto;
-  max-height: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-height: 100vh;
+  height: 100vh;
+
+  .app-route {
+    max-width: 100%;
+    height: 100%;
+    max-height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: flex;
+  }
 }
 </style>

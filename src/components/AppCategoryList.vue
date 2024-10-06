@@ -15,7 +15,7 @@ const getSubCategories = (categoryId: number) => {
 
 <template>
    <router-link
-    to="/edit"
+    to="/admin/create-product"
     class="category-list-container">
         <div v-for="cataloge in rootCatalogs" :key="cataloge.id" class="category-list-container__text">
             <span>{{cataloge.name}}</span>

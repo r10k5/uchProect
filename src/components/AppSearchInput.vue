@@ -10,7 +10,7 @@ const searchText = ref('');
 
 function addObject() {
     router.push({
-        name: 'edit',
+        name: 'admin-create-product',
     })
 }
 

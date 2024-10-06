@@ -3,6 +3,7 @@ import HomeView from '@/views/HomeView.vue'
 import EditorView from '@/views/EditorView.vue'
 import AboutView from '@/views/AboutView.vue'
 import ResultsView from '@/views/ResultsView.vue'
+import { authGuard } from './auth.guard'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,9 +14,10 @@ const router = createRouter({
       component: HomeView
     },
     {
-      path: '/edit',
-      name: 'edit',
-      component: EditorView
+      path: '/admin/create-product',
+      name: 'admin-create-product',
+      component: EditorView,
+      beforeEnter: [authGuard],
     },
     {
       path: '/about',

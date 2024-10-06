@@ -177,5 +177,6 @@ const closeModalCart = () => {
 }
 .home-container {
   display: block;
+  max-width: 100%;
 }
 </style>
