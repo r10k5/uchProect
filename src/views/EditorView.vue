@@ -5,6 +5,7 @@ import AppFileInput from '@/components/inputs/AppFileInput.vue'
 import AppInput from '@/components/inputs/AppInput.vue'
 import AppSelector from '@/components/inputs/AppSelector.vue'
 import { api } from '@/services'
+import type { Category } from '@/services/api/categories/types'
 import { useCardsStore } from '@/stores/cards.store'
 import { useCatalogeStore } from '@/stores/category.store'
 import { computed, ref } from 'vue'
@@ -51,13 +52,24 @@ const addField = () => {
 
 const cardsStore = useCardsStore()
 
-const addNewCard = () => {
-  api.products.createProduct({
+const addNewCard = async () => {
+  if (selectedCategory.value === null) {
+    return
+  }
+
+  let file = undefined
+  if (photo.value) {
+    file = await api.files.upload(photo.value)
+  }
+
+  await api.products.createProduct({
     name: name.value,
     article: article.value,
     description: description.value,
     fields: [],
-    price: price.value
+    price: price.value,
+    photo: file,
+    category_id: selectedCategory.value.id
   })
   // cardsStore.addCardLocal({
   //   id: Math.random(),
@@ -71,7 +83,7 @@ const addNewCard = () => {
 }
 
 const categories = computed(() => categoriesStore.cataloges)
-const selectedCategory = ref(null)
+const selectedCategory = ref<Category | null>(null)
 </script>
 
 <template>

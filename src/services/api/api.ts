@@ -6,6 +6,7 @@ import { ProductsApi } from './cards'
 import { CartApi } from './cart'
 import { CategoriesApi } from './categories'
 import { mapError, type DefaultError } from './errors/mapper'
+import { FilesApi } from './files'
 import { OrdersApi } from './orders'
 import { ServicesApi } from './services'
 
@@ -16,6 +17,7 @@ class Api {
     this.categories = new CategoriesApi(this._axios)
     this.orders = new OrdersApi(this._axios)
     this.services = new ServicesApi(this._axios)
+    this.files = new FilesApi(this._axios, this)
   }
 
   public products: ProductsApi
@@ -23,6 +25,7 @@ class Api {
   public categories: CategoriesApi
   public orders: OrdersApi
   public services: ServicesApi
+  public files: FilesApi
 
   private _expired?: number
   private static readonly EXPIRATION_SUB = 60 * 1000

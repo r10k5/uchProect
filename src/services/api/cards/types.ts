@@ -22,4 +22,5 @@ export type CreateProductProps = {
   description: string
   photo?: string
   fields: FieldCreateProductProps[]
+  category_id: number
 }
