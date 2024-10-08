@@ -5,10 +5,10 @@ import AppCategoryList from '@/components/AppCategoryList.vue'
 import AppCategoryName from '@/components/AppCategoryName.vue'
 import AppFooter from '@/components/AppFooter.vue'
 import AppInstitutionButton from '@/components/AppInstitutionButton.vue'
-import AppModalCart from '@/components/AppModalCart.vue'
 import AppProductCard from '@/components/AppProductCard.vue'
 import AppSearchInput from '@/components/AppSearchInput.vue'
 import AppCartIcon from '@/components/icons/AppCartIcon.vue'
+import AppCartModal from '@/components/modals/AppCartModal.vue'
 import { useCardsStore } from '@/stores/cards.store'
 import { useCatalogeStore } from '@/stores/category.store'
 import { ref } from 'vue'
@@ -19,22 +19,16 @@ const categoryStore = useCatalogeStore()
 categoryStore.getCategories()
 cardsStore.getCards()
 
-const cartIsOpen = ref(false)
+const cartModalIsOpen = ref(false)
 
 const openModalCart = () => {
-  cartIsOpen.value = true
-  return cartIsOpen
-}
-
-const closeModalCart = () => {
-  cartIsOpen.value = false
-  return cartIsOpen
+  cartModalIsOpen.value = true
 }
 </script>
 
 <template>
   <div class="home-container">
-    <AppModalCart class="home-modal_cart" v-if="cartIsOpen" @close="closeModalCart" />
+    <app-cart-modal v-model="cartModalIsOpen" />
 
     <div class="home-container__cart" @click="openModalCart" role="button">
       <AppCartIcon />

@@ -130,6 +130,7 @@ defineExpose(manager)
 }
 
 .app-modal__window {
+  max-width: 65%;
   overflow: hidden;
   position: relative;
 
