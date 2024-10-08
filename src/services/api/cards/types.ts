@@ -20,6 +20,6 @@ export type CreateProductProps = {
   price: string
   article: string
   description: string
-  photo: string
+  photo?: string
   fields: FieldCreateProductProps[]
 }
